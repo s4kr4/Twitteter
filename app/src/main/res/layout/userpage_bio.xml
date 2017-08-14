@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+	    
+    <TextView 
+        android:id="@+id/bio_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#cccccc"
+        android:text="bio" />
+    
+    <TextView 
+        android:id="@+id/bio"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#777777"
+        android:textColor="#cccccc"
+        android:text="biotext" />
+    
+    <TextView 
+        android:id="@+id/website_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#cccccc"
+        android:text="WebSite" />
+
+    <TextView 
+        android:id="@+id/website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#777777"
+        android:textColor="#cccccc"
+        android:text="http://twitter.com/" />
+    	    
+    <TextView 
+        android:id="@+id/location_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#cccccc"
+        android:text="Location" />
+
+    <TextView 
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#777777"
+        android:textColor="#cccccc"
+        android:text="bed" />
+</LinearLayout>

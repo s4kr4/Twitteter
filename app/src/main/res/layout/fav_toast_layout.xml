@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@layout/fav_toast_shape"
+    android:padding="5dp" >
+    
+    <com.loopj.android.image.SmartImageView
+        android:id="@+id/icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView 
+        android:id="@+id/from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/icon"
+        android:layout_alignTop="@+id/icon"
+        android:text="Favorite from"
+        android:textColor="#ffffffff"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/from"
+        android:layout_alignTop="@+id/icon"
+        android:text="HundleName"
+        android:textColor="#ffffa500"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/screen_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/name"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/name"
+        android:text="\uFF20ScreenName"
+        android:textColor="#ffcccccc"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/from"
+        android:layout_below="@+id/name"
+        android:text="abcdefghijklmnopqrstuvwxyz"
+        android:textColor="#ffffffff"
+        android:textSize="13sp" />
+
+</RelativeLayout>

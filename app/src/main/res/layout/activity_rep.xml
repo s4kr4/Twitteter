@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reply"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77000000"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout 
+	    android:layout_width="300dp"
+	    android:layout_height="wrap_content"
+	    android:background="#ee000000" >
+	    
+	    <ImageView
+	        android:id="@+id/icon"
+	        android:layout_width="50dp"
+	        android:layout_height="50dp"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentLeft="true"
+	        android:src="@drawable/ic_launcher"
+	        android:contentDescription="icon" />
+	
+	    <TextView
+	        android:id="@+id/name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/icon"
+	        android:layout_marginLeft="8dp"
+	        android:layout_toRightOf="@+id/icon"
+	        android:text="HundleName"
+	        android:textColor="#ffffa500"
+	        android:textSize="12sp" />
+	
+	    <TextView
+	        android:id="@+id/screen_name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/name"
+	        android:layout_marginLeft="4dp"
+	        android:layout_toRightOf="@+id/name"
+	        android:text="\uFF20ScreenName"
+	        android:textColor="#ffcccccc"
+	        android:textSize="12sp" />
+	
+	    <ImageView
+	        android:id="@+id/favorite_icon"
+	        android:layout_width="15dp"
+	        android:layout_height="15dp"
+	        android:layout_toLeftOf="@+id/retweet_icon"
+	        android:scaleType="fitCenter"
+	        android:visibility="gone"
+	        android:src="@drawable/favorite"
+	        android:contentDescription="fav" />"
+	    
+	    <ImageView 
+	        android:id="@+id/retweet_icon"
+	        android:layout_width="15dp"
+	        android:layout_height="15dp"
+	        android:layout_alignParentRight="true"
+	        android:scaleType="fitCenter"
+	        android:visibility="invisible"
+	        android:src="@drawable/retweet"
+	        android:contentDescription="retweet" />
+	
+	    <TextView
+	        android:id="@+id/text"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/name"
+	        android:layout_below="@+id/name"
+	        android:text="abcdefghijklmnopqrstuvwxyz"
+	        android:textColor="#ffffffff"
+	        android:textSize="12sp" />
+	
+	    <TextView 
+	        android:id="@+id/tweetId"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/name"
+	        android:layout_below="@+id/text"
+	        android:visibility="invisible"
+	        android:text="id"
+	        android:textSize="10sp"
+	        android:textColor="#ff000000" />
+	
+	    <TextView
+	        android:id="@+id/via"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/text"
+	        android:layout_alignLeft="@+id/text"
+	        android:layout_marginTop="5dp"
+	        android:text="via"
+	        android:textColor="#ffcccccc"
+	        android:textSize="10sp" />
+	
+	    <TextView
+	        android:id="@+id/time"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/text"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginTop="5dp"
+	        android:text="time"
+	        android:textColor="#ffcccccc"
+	        android:textSize="10sp" />
+	    
+	    <ImageView
+	        android:id="@+id/img1"
+	        android:layout_width="100dp"
+	        android:layout_height="70dp"
+	        android:layout_below="@+id/via"
+	        android:layout_alignLeft="@+id/via"
+	        android:visibility="gone"
+	        android:clickable="true"
+	        android:scaleType="centerCrop"
+	        android:contentDescription="img1" />
+	
+	</RelativeLayout>
+
+	<LinearLayout
+	    android:layout_width="300dp"
+	    android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+	    android:orientation="horizontal" >
+    
+	    <EditText 
+	        android:id="@+id/replyText"
+	        android:layout_width="240dp"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:inputType="textMultiLine" />
+
+	    <Button 
+	        android:id="@+id/sendBtn"
+	        android:layout_width="60dp"
+	        android:layout_height="wrap_content"
+	        android:text="reply" />
+        
+	</LinearLayout>
+	    
+</LinearLayout>

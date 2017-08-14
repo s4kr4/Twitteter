@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">Twitteter</string>
+    <string name="twitter_oauth">OAuth!!!</string>
+    <string name="twitter_callback_url">ph://twitter</string>
+    
+    <string name="context_reply">リプライ</string>
+    <string name="context_favorite">ふぁぼ</string>
+    <string name="context_unfavorite">あんふぁぼ</string>
+    <string name="context_retweet">リツイート</string>
+    <string name="context_unretweet">あんリツイート</string>
+
+</resources>

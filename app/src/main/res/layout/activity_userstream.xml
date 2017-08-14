@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout 
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff000000" >
+        
+        <ImageView 
+            android:id="@+id/app_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+	        android:layout_centerVertical="true"
+            android:src="@drawable/app_icon"
+            android:contentDescription="app_icon" />
+        
+	    <TextView 
+	         android:id="@+id/title"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_centerVertical="true"
+	         android:layout_toRightOf="@+id/app_icon"
+	         android:text="ツイッタタァー!"
+	         android:textSize="20sp"
+	         android:textColor="#ffffffff" />
+
+        <Button 
+            android:id="@+id/bio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+	        android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="MyPage"
+            android:textColor="#ffffffff" />
+        
+    </RelativeLayout>
+    
+	<ListView
+        android:id="@+id/tweet_listview"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/label"
+		android:focusable="true"
+		android:focusableInTouchMode="true"
+		android:transcriptMode="disabled" />
+
+    <EditText
+        android:id="@+id/tweet_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/tweet_button"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textColor="#ffffffff" />
+
+    <Button
+        android:id="@+id/tweet_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Tweet\n140"
+        android:textColor="#ffffffff"
+        android:textSize="15sp" >
+		<requestFocus />
+	</Button>
+    
+</RelativeLayout>
