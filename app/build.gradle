@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
 
     defaultConfig {
-        applicationId "hp.ihcnu.twitteter"
+        applicationId "com.s4kr4.twitteter"
         minSdkVersion 17
         targetSdkVersion 21
     }

@@ -6,7 +6,7 @@
     android:background="#ee000000"
     android:padding="3dp" >
 
-    <hp.ihcnu.twitteter.TweetViewPager
+    <com.s4kr4.twitteter.TweetViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
