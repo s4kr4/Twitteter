@@ -12,7 +12,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -116,7 +115,7 @@ public class TweetPagerAdapter extends PagerAdapter {
 			img[3] = (ImageView)convertView.findViewById(R.id.img4);
 
 			int i = 0;
-			for(twitter4j.MediaEntity item : status.getExtendedMediaEntities()){
+			for(twitter4j.MediaEntity item : status.getMediaEntities()){
 				img[i].setVisibility(ImageView.VISIBLE);
 				Picasso.with(c)
 					.load(item.getMediaURL())

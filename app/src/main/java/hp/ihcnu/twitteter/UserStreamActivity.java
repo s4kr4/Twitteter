@@ -43,11 +43,12 @@ import android.view.WindowManager;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.loopj.android.image.SmartImageView;
+import com.squareup.picasso.Picasso;
 
 public class UserStreamActivity extends Activity {
 
@@ -410,9 +411,11 @@ public class UserStreamActivity extends Activity {
 		LayoutInflater inflater = getLayoutInflater();
 		View toastLayout = inflater.inflate(R.layout.fav_toast_layout, null);
 
-		SmartImageView image = (SmartImageView)toastLayout.findViewById(R.id.icon);
-		image.setImageUrl(user.getProfileImageURL());
-		
+		ImageView image = (ImageView)toastLayout.findViewById(R.id.icon);
+		Picasso.with(getMyContext())
+				.load(user.getProfileImageURL())
+				.into(image);
+
 		TextView name = (TextView)toastLayout.findViewById(R.id.name);
 		name.setText(user.getName().toString());
 		
@@ -432,9 +435,11 @@ public class UserStreamActivity extends Activity {
 		LayoutInflater inflater = getLayoutInflater();
 		View toastLayout = inflater.inflate(R.layout.retweet_toast_layout, null);
 
-		SmartImageView image = (SmartImageView)toastLayout.findViewById(R.id.icon);
-		image.setImageUrl(user.getProfileImageURL());
-		
+		ImageView image = (ImageView)toastLayout.findViewById(R.id.icon);
+        Picasso.with(getMyContext())
+				.load(user.getProfileImageURL())
+				.into(image);
+
 		TextView name = (TextView)toastLayout.findViewById(R.id.name);
 		name.setText(user.getName().toString());
 		
@@ -480,8 +485,10 @@ public class UserStreamActivity extends Activity {
 			break;
 		}
 
-		SmartImageView image = (SmartImageView)toastLayout.findViewById(R.id.icon);
-		image.setImageUrl(user0.getProfileImageURL());
+		ImageView image = (ImageView)toastLayout.findViewById(R.id.icon);
+        Picasso.with(getMyContext())
+				.load(user0.getProfileImageURL())
+				.into(image);
 		
 		TextView name = (TextView)toastLayout.findViewById(R.id.name);
 		name.setText(user0.getName().toString());

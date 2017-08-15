@@ -1,17 +1,17 @@
 package hp.ihcnu.twitteter;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
-import com.loopj.android.image.SmartImageView;
 import com.squareup.picasso.Picasso;
 
 public class ImageViewerActivity extends Activity{
 
-	private SmartImageView imageView;
+	private
+	ImageView imageView;
 	private Animation inAnimation;
 	private Animation outAnimation;
 	
@@ -23,7 +23,7 @@ public class ImageViewerActivity extends Activity{
 		inAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_anim);
 		outAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out_anim);
 		
-		imageView = (SmartImageView)findViewById(R.id.imageview);
+		imageView = (ImageView)findViewById(R.id.imageview);
 		imageView.setAnimation(inAnimation);
 		
 		String url = getIntent().getDataString();

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -54,7 +55,7 @@ public class TwitterOAuthActivity extends Activity {
 					Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 					startActivity(intent);
 				} else {
-					
+
 				}
 			}
 		};

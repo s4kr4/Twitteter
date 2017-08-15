@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopj.android.image.SmartImageView;
+import com.squareup.picasso.Picasso;
 
 public class UserListAdapter extends ArrayAdapter<twitter4j.User> {
 
@@ -27,9 +28,11 @@ public class UserListAdapter extends ArrayAdapter<twitter4j.User> {
 		
 		User user = getItem(pos);
 		
-		SmartImageView icon = (SmartImageView)convertView.findViewById(R.id.icon);
-		icon.setImageUrl(user.getProfileImageURL());
-		
+		ImageView icon = (ImageView)convertView.findViewById(R.id.icon);
+		Picasso.with(getContext())
+				.load(user.getProfileImageURL())
+				.into(icon);
+
 		TextView name = (TextView)convertView.findViewById(R.id.name);
 		name.setText(user.getName());
 

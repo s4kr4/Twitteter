@@ -4,18 +4,17 @@ import twitter4j.Relationship;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopj.android.image.SmartImageView;
+import com.squareup.picasso.Picasso;
 
 public class UserPageActivity extends FragmentActivity {
 
@@ -40,12 +39,16 @@ public class UserPageActivity extends FragmentActivity {
 		
 		this.user = (User)getIntent().getSerializableExtra("USER");
 		
-		SmartImageView icon = (SmartImageView)findViewById(R.id.icon);
-		icon.setImageUrl(user.getProfileImageURL().replaceAll("_normal", ""));
-		
-		SmartImageView header = (SmartImageView)findViewById(R.id.header);
-		header.setImageUrl(user.getProfileBannerURL());
-		
+		ImageView icon = (ImageView)findViewById(R.id.icon);
+		Picasso.with(getApplicationContext())
+				.load(user.getProfileImageURL().replaceAll("_normal", ""))
+				.into(icon);
+
+		ImageView header = (ImageView)findViewById(R.id.header);
+        Picasso.with(getBaseContext())
+				.load(user.getProfileImageURL())
+				.into(header);
+
 		TextView name = (TextView)findViewById(R.id.username);
 		name.setText(user.getName() + " @" + user.getScreenName());
 		

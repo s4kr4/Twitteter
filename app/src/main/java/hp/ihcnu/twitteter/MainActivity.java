@@ -17,10 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.loopj.android.image.SmartImageView;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends ListActivity {
 
@@ -135,8 +136,11 @@ public class MainActivity extends ListActivity {
 			screenName.setText("@" + item.getUser().getScreenName());
 			TextView text = (TextView)convertView.findViewById(R.id.text);
 			text.setText(item.getText());
-			SmartImageView icon = (SmartImageView)convertView.findViewById(R.id.icon);
-			icon.setImageUrl(item.getUser().getProfileImageURL());
+			ImageView icon = (ImageView)convertView.findViewById(R.id.icon);
+			Picasso.with(getContext())
+					.load(item.getUser()
+					.getProfileImageURL());
+
 			return convertView;
 		}
 	}

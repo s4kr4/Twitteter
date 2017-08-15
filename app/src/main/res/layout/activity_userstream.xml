@@ -23,7 +23,7 @@
 	         android:layout_height="wrap_content"
 	         android:layout_centerVertical="true"
 	         android:layout_toRightOf="@+id/app_icon"
-	         android:text="ツイッタタァー!"
+	         android:text="@string/app_name"
 	         android:textSize="20sp"
 	         android:textColor="#ffffffff" />
 

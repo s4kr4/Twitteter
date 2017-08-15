@@ -26,11 +26,18 @@ android {
 
 dependencies {
     compile ('com.android.support:support-v4:18.0.0')
-    compile files('libs/android-smart-image-view-1.0.0.jar')
-    compile files('libs/gradle-wrapper.jar')
-    compile files('libs/twitter4j-async-4.0.2.jar')
-    compile files('libs/twitter4j-core-4.0.2.jar')
-    compile files('libs/twitter4j-media-support-4.0.2.jar')
-    compile files('libs/twitter4j-stream-4.0.2.jar')
+
+    // https://mvnrepository.com/artifact/org.twitter4j/twitter4j-core
+    compile group: 'org.twitter4j', name: 'twitter4j-core', version: '4.0.6'
+    // https://mvnrepository.com/artifact/org.twitter4j/twitter4j-async
+    compile group: 'org.twitter4j', name: 'twitter4j-async', version: '4.0.6'
+    // https://mvnrepository.com/artifact/org.twitter4j/twitter4j-media-support
+    compile group: 'org.twitter4j', name: 'twitter4j-media-support', version: '4.0.6'
+    // https://mvnrepository.com/artifact/org.twitter4j/twitter4j-stream
+    compile group: 'org.twitter4j', name: 'twitter4j-stream', version: '4.0.6'
+    // https://mvnrepository.com/artifact/com.github.snowdream.android/smartimageview
+    compile group: 'com.github.snowdream.android', name: 'smartimageview', version: '0.0.2'
+
     compile 'com.squareup.picasso:picasso:2.3.2'
+    //compile files('libs/gradle-wrapper.jar')
 }
