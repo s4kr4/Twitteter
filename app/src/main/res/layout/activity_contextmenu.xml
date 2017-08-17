@@ -74,7 +74,7 @@
 	        android:textSize="12sp" />
 	
 	    <TextView 
-	        android:id="@+id/tweetId"
+	        android:id="@+id/tweet_id"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/name"

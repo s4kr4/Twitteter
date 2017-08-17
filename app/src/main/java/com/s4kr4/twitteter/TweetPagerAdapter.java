@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -178,9 +179,7 @@ public class TweetPagerAdapter extends PagerAdapter {
 
         @Override
         public boolean onLongClick(View v) {
-            Intent intent = new Intent(c, ContextMenuActivity.class);
-            intent.putExtra("STATUS", status);
-            c.startActivity(intent);
+            ContextMenuActivity_.intent(c).extra("STATUS", status).start();
             return false;
         }
     };

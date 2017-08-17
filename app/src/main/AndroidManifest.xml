@@ -50,14 +50,16 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
+
         <activity
-            android:name=".ContextMenuActivity"
+            android:name=".ContextMenuActivity_"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-            
+
         </activity>
+
         <activity
-            android:name=".ReplyActivity"
+            android:name=".ReplyActivity_"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
             

@@ -1,15 +1,5 @@
 package com.s4kr4.twitteter;
 
-import java.io.File;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.squareup.picasso.Picasso;
-
-import twitter4j.Status;
-import twitter4j.StatusUpdate;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -17,97 +7,118 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.LongClick;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.AnimationRes;
+
+import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import twitter4j.Status;
+import twitter4j.StatusUpdate;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
+@EActivity(R.layout.activity_rep)
 public class ReplyActivity extends Activity{
 
     private Status status;
-    private Pattern getViaPattern = Pattern.compile("</?a.*?>");
+    private Pattern viaPattern = Pattern.compile("</?a.*?>");
     private Twitter mTwitter;
     private final static int GET_IMAGE_RESULT = 0;
 
-    private EditText tweetText;
     private Uri imageUri = null;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-//        this.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_rep);
+    @ViewById(R.id.reply)
+    View reply;
 
+    @ViewById(R.id.name)
+    TextView name;
+
+    @ViewById(R.id.screen_name)
+    TextView screenName;
+
+    @ViewById(R.id.text)
+    TextView text;
+
+    @ViewById(R.id.via)
+    TextView via;
+
+    @ViewById(R.id.time)
+    TextView time;
+
+    @ViewById(R.id.tweet_id)
+    TextView tweetId;
+
+    @ViewById(R.id.icon)
+    ImageView icon;
+
+    @ViewById(R.id.replyText)
+    EditText replyText;
+
+    @ViewById(R.id.sendBtn)
+    Button sendButton;
+
+    @AnimationRes(R.anim.fade_in_anim)
+    Animation fadeIn;
+
+    @AfterViews
+    void initView() {
         mTwitter = TwitterUtils.getTwitterInstance(this);
-
-        Animation inAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_anim);
-        View menu = (View)findViewById(R.id.reply);
-        menu.setAnimation(inAnimation);
-
         status = (Status)getIntent().getSerializableExtra("STATUS");
 
-        TextView name = (TextView)findViewById(R.id.name);
         name.setText(status.getUser().getName());
 
-        TextView screenName = (TextView)findViewById(R.id.screen_name);
         screenName.setText("@" + status.getUser().getScreenName());
 
-        TextView text = (TextView)findViewById(R.id.text);
         text.setText(status.getText());
 
-        TextView via = (TextView)findViewById(R.id.via);
-        Matcher m = getViaPattern.matcher(status.getSource().toString());
+        Matcher m = viaPattern.matcher(status.getSource().toString());
         via.setText("via " + m.replaceAll(""));
 
-        TextView time = (TextView)findViewById(R.id.time);
         time.setText(status.getCreatedAt().toString());
 
-        TextView id = (TextView)findViewById(R.id.tweetId);
-        id.setText(Long.toString(status.getId()));
+        tweetId.setText(Long.toString(status.getId()));
 
-        ImageView icon = (ImageView)findViewById(R.id.icon);
         Picasso.with(getContext())
-        .load(status.getUser().getProfileImageURL())
-        .into(icon);
+                .load(status.getUser().getProfileImageURL())
+                .into(icon);
 
-        Button sendButton = (Button)findViewById(R.id.sendBtn);
-        sendButton.setOnClickListener(sendButtonClickListener);
-        sendButton.setOnLongClickListener(sendButtonLongClickListener);
+        reply.startAnimation(fadeIn);
 
-        tweetText = (EditText)findViewById(R.id.replyText);
-        tweetText.setText("@" + status.getUser().getScreenName() + " ");
-        tweetText.setSelection(tweetText.getText().length());
+        replyText.setText("@" + status.getUser().getScreenName() + " ");
+        replyText.setSelection(replyText.getText().length());
     }
 
-    OnClickListener sendButtonClickListener = new OnClickListener() {
+    @Click(R.id.sendBtn)
+    void sendButtonClicked() {
+        sendReply(replyText.getText().toString());
+        finish();
+    }
 
-        @Override
-        public void onClick(View v) {
-            sendReply(tweetText.getText().toString());
-            finish();
-        }
-    };
-
-    OnLongClickListener sendButtonLongClickListener = new OnLongClickListener() {
-
-        @Override
-        public boolean onLongClick(View v) {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent, GET_IMAGE_RESULT);
-            return false;
-        }
-    };
+    @LongClick(R.id.sendBtn)
+    void sendButtonLongClicked() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, GET_IMAGE_RESULT);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
